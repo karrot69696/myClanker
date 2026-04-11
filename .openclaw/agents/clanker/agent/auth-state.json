@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "order": {
+    "9router": [
+      "9router-proxy"
+    ]
+  },
+  "lastGood": {
+    "9router": "9router-proxy"
+  },
+  "usageStats": {
+    "9router-proxy": {
+      "errorCount": 0,
+      "lastUsed": 1775938869503,
+      "lastFailureAt": 1775282970249
+    }
+  }
+}

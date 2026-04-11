@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "socket": {
+    "path": "/root/.openclaw/exec-approvals.sock",
+    "token": "Uc9kD5Lc0lu_t1Jb1thmamEHRyxLTNgo"
+  },
+  "defaults": {
+    "security": "full",
+    "ask": "off",
+    "askFallback": "full"
+  },
+  "agents": {
+    "main": {
+      "security": "full",
+      "ask": "off",
+      "askFallback": "full",
+      "autoAllowSkills": true
+    },
+    "clanker": {
+      "security": "full",
+      "ask": "off",
+      "askFallback": "full",
+      "autoAllowSkills": true
+    }
+  }
+}

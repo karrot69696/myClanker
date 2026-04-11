@@ -1,0 +1,15 @@
+# OpenClaw Git Ignore
+.git/
+.openclaw/agents/clanker/sessions/
+.openclaw/workspace/memory/
+.openclaw/workspace/logs/
+.openclaw/identity/device-auth.json
+.openclaw/identity/cookies.json
+.bash_history
+.DS_Store
+*.log
+*.tmp
+.env
+node_modules/
+dist/
+build/

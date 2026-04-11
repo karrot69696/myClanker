@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "profiles": {
+    "9router-proxy": {
+      "provider": "9router",
+      "type": "api_key",
+      "key": "sk-no-key"
+    }
+  }
+}
