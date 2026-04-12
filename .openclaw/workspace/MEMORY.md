@@ -82,10 +82,9 @@
 - default output: `/root/.openclaw/workspace/generated_*.png`
 
 ### Timezone Rules
-- **Firestore data** always uses UTC timestamps
-- **User references** should be interpreted in ICT (`UTC+7`) unless stated otherwise
-- when checking dates, convert the user's ICT date to the correct UTC range
-- example: `Saturday in Vietnam` = Friday 17:00 UTC through Saturday 16:59 UTC
+- **DEFAULT: ICT (UTC+7)** for all user communications, references, and general context
+- **Firestore data** uses UTC timestamps — convert when needed
+- when checking dates, remember ICT date = previous day 17:00 UTC to current day 16:59 UTC
 - task timing should default to ICT unless explicitly stated otherwise
 
 ---

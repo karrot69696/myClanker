@@ -3,8 +3,12 @@
 .openclaw/agents/clanker/sessions/
 .openclaw/workspace/memory/
 .openclaw/workspace/logs/
+.openclaw/agents/**/auth-state.json
 .openclaw/identity/device-auth.json
 .openclaw/identity/cookies.json
+.openclaw/logs/config-health.json
+.openclaw/tasks/runs.sqlite*
+.openclaw/telegram/update-offset-default.json
 .bash_history
 .DS_Store
 *.log

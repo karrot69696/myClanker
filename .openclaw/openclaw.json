@@ -119,25 +119,7 @@
     }
   },
   "plugins": {
-    "entries": {
-      "apify": {
-        "enabled": true
-      }
-    },
-    "installs": {
-      "apify": {
-        "source": "clawhub",
-        "spec": "clawhub:@apify/apify-openclaw-plugin@0.1.0",
-        "installPath": "/root/.openclaw/extensions/apify",
-        "version": "0.1.0",
-        "integrity": "sha256-XYMwt0d3JPXAnmIITl4fX5lmBNAag7EtOk0jD22TNu0=",
-        "resolvedAt": "2026-04-11T19:58:55.447Z",
-        "clawhubUrl": "https://clawhub.ai",
-        "clawhubPackage": "@apify/apify-openclaw-plugin",
-        "clawhubFamily": "code-plugin",
-        "clawhubChannel": "community",
-        "installedAt": "2026-04-11T19:58:55.449Z"
-      }
-    }
+    "entries": {},
+    "installs": {}
   }
 }
