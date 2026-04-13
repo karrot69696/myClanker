@@ -1,0 +1,32 @@
+Subject: [REPO] Commit Review — [SHA_SHORT] ([DATE])
+
+Hey [NAME],
+
+[INTRO_MESSAGE]
+
+---
+
+COMMIT REVIEW: [SHA_SHORT] ([DATE])
+Message: [COMMIT_MESSAGE]
+
+FILES CHANGED
++------------+--------+--------+------------------------------------------------+
+| File       | +Lines  | -Lines | Summary                                      |
++------------+--------+--------+------------------------------------------------+
+[FILES_TABLE]
++------------+--------+--------+------------------------------------------------+
+
+KEY FEATURES / IMPLEMENTATIONS
+[FEATURES_LIST]
+
+WHAT'S WORKING WELL
+[WORKS_WELL]
+
+AREAS TO WATCH
+[AREAS_TO_WATCH]
+
+---
+
+[CLOSING_COMPLIMENT]
+
+— [SENDER_NAME] 🦊

@@ -9,6 +9,8 @@ RUN apt-get update && apt-get install -y \
     poppler-utils \
     ghostscript \
     qpdf \
+    cron \
+    make \
     && rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /etc/apt/keyrings \
@@ -21,10 +23,19 @@ RUN mkdir -p /etc/apt/keyrings \
 RUN pip install --break-system-packages \
     pymupdf pytesseract pillow \
     requests beautifulsoup4 pandas \
-    faster-whisper ocrmypdf pdfplumber semgrep
+    faster-whisper hf_transfer ocrmypdf pdfplumber semgrep
 
 RUN curl -L https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp \
     -o /usr/local/bin/yt-dlp && chmod a+rx /usr/local/bin/yt-dlp
+
+RUN curl -L https://go.dev/dl/go1.25.8.linux-amd64.tar.gz | tar -C /usr/local -xzf -
+ENV PATH=$PATH:/usr/local/go/bin
+
+RUN git clone https://github.com/steipete/gogcli.git /tmp/gogcli \
+    && cd /tmp/gogcli \
+    && make \
+    && cp bin/gog /usr/local/bin/ \
+    && rm -rf /tmp/gogcli
 
 RUN npm config set fetch-retries 5 \
     && npm config set fetch-retry-factor 2 \
@@ -45,6 +56,7 @@ WORKDIR /root/.openclaw
 EXPOSE 18791
 
 CMD sh -c "\
-    node -e \"const fs=require('fs'); const p='/root/.openclaw/openclaw.json'; if(fs.existsSync(p)){ const c=JSON.parse(fs.readFileSync(p,'utf8')); c.tools=Object.assign({}, c.tools, {profile:'full', exec:{host:'gateway', security:'full', ask:'off'}}); c.gateway=Object.assign({}, c.gateway, {port:18791, bind:'custom', customBindHost:'0.0.0.0'}); fs.writeFileSync(p, JSON.stringify(c, null, 2)); }\" \
+    service cron start \
+    && node -e \"const fs=require('fs'); const p='/root/.openclaw/openclaw.json'; if(fs.existsSync(p)){ const c=JSON.parse(fs.readFileSync(p,'utf8')); c.tools=Object.assign({}, c.tools, {profile:'full', exec:{host:'gateway', security:'full', ask:'off'}}); c.gateway=Object.assign({}, c.gateway, {port:18791, bind:'custom', customBindHost:'0.0.0.0'}); fs.writeFileSync(p, JSON.stringify(c, null, 2)); }\" \
     && (while true; do sleep 5; openclaw devices approve --latest 2>/dev/null || true; done) \
     & openclaw gateway run"

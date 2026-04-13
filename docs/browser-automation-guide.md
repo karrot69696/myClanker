@@ -3,6 +3,7 @@
 ## Tổng quan
 
 Browser Automation cho phép bot AI **điều khiển Chrome thật trên màn hình** máy bạn theo thời gian thực. Bot có thể:
+
 - 🌐 Mở website, duyệt web ngay trên màn hình bạn
 - 📝 Điền form tự động
 - 🖱️ Click, gõ phím, cuộn trang
@@ -15,7 +16,7 @@ Browser Automation cho phép bot AI **điều khiển Chrome thật trên màn h
 
 ## Cách hoạt động
 
-```
+```text
 Máy bạn (Windows)                    Docker Container
 ┌─────────────────────┐              ┌──────────────────────────┐
 │ Chrome Debug Mode   │◄────────────►│ socat proxy              │
@@ -126,7 +127,7 @@ Bot tự động dùng các lệnh này khi bạn nhắn **"mở trình duyệt"
 ## Cách ra lệnh cho bot
 
 | Lệnh | Bot làm gì |
-|------|-----------|
+| ------ | ----------- |
 | `"Mở google.com và tìm bàn phím cơ"` | Mở Chrome → search → chụp ảnh → báo cáo |
 | `"Dùng browser vào shopee tìm iPhone"` | Mở Shopee → tìm → tổng hợp kết quả |
 | `"Mở facebook và đọc tin mới nhất"` | Vào Facebook (đã login sẵn) → đọc feed |
@@ -177,7 +178,7 @@ CMD sh -c "socat TCP-LISTEN:9222,fork,reuseaddr TCP:host.docker.internal:9222 & 
 ## Lưu ý quan trọng
 
 | # | Lưu ý |
-|---|-------|
+| --- | ------- |
 | 1 | **Bật `start-chrome-debug.bat` trước** khi Docker chạy |
 | 2 | Chrome debug dùng **profile riêng** → phải login lại các trang 1 lần |
 | 3 | Port 9222 chỉ bind localhost → **an toàn** |

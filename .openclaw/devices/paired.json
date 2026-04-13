@@ -77,7 +77,8 @@
           "operator.read",
           "operator.write"
         ],
-        "createdAtMs": 1775398784041
+        "createdAtMs": 1775398784041,
+        "lastUsedAtMs": 1776052718178
       }
     },
     "createdAtMs": 1775398784041,

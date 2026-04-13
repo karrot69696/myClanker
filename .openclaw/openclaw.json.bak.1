@@ -1,6 +1,13 @@
 {
   "meta": {
-    "lastTouchedVersion": "2026.3.24"
+    "lastTouchedVersion": "2026.4.11",
+    "lastTouchedAt": "2026-04-13T05:07:27.410Z"
+  },
+  "session": {
+    "reset": {
+      "mode": "idle",
+      "idleMinutes": 10080
+    }
   },
   "agents": {
     "defaults": {
@@ -8,6 +15,7 @@
         "primary": "9router/dumb-todd",
         "fallbacks": []
       },
+      "timeoutSeconds": 200,
       "compaction": {
         "mode": "safeguard"
       }
@@ -74,6 +82,25 @@
       "ask": "off"
     }
   },
+  "messages": {
+    "tts": {
+      "auto": "tagged",
+      "provider": "elevenlabs",
+      "providers": {
+        "elevenlabs": {
+          "apiKey": "sk_06c611174813f3197193e7b6248f982259bea03edec7d528",
+          "baseUrl": "https://api.elevenlabs.io",
+          "voiceId": "Nggzl2QAXh3OijoXD116",
+          "modelId": "eleven_multilingual_v2",
+          "voiceSettings": {
+            "stability": 0.5,
+            "similarityBoost": 0.75,
+            "speed": 1
+          }
+        }
+      }
+    }
+  },
   "gateway": {
     "port": 18791,
     "mode": "local",
@@ -82,6 +109,68 @@
     "auth": {
       "mode": "token",
       "token": "cli-dummy-token-xyz123"
+    },
+    "controlUi": {
+      "allowedOrigins": [
+        "http://localhost:18791",
+        "http://127.0.0.1:18791",
+        "http://0.0.0.0:18791"
+      ]
+    }
+  },
+  "plugins": {
+    "entries": {
+      "memory-core": {
+        "config": {
+          "dreaming": {
+            "enabled": true
+          }
+        }
+      },
+      "memory-wiki": {
+        "enabled": true
+      }
+    },
+    "installs": {}
+  },
+  "skills": {
+    "entries": {
+      "apple-notes": {
+        "enabled": false
+      },
+      "apple-reminders": {
+        "enabled": false
+      },
+      "bear-notes": {
+        "enabled": false
+      },
+      "blogwatcher": {
+        "enabled": false
+      },
+      "blucli": {
+        "enabled": false
+      },
+      "bluebubbles": {
+        "enabled": false
+      },
+      "camsnap": {
+        "enabled": false
+      },
+      "discord": {
+        "enabled": false
+      },
+      "wacli": {
+        "enabled": false
+      },
+      "voice-call": {
+        "enabled": true
+      },
+      "xurl": {
+        "enabled": false
+      },
+      "trello": {
+        "enabled": false
+      }
     }
   }
 }

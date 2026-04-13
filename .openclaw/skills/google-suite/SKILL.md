@@ -5,6 +5,7 @@ interact with Gmail, Calendar, Drive, Docs, Sheets, and more via gogcli.
 ## when to use this skill
 
 use when the user asks to:
+
 - check/search/send emails
 - view/create/update calendar events
 - upload/download/search Drive files
@@ -26,11 +27,13 @@ which gog || echo "not installed"
 if gogcli is missing:
 
 1. install via homebrew (macOS/Linux):
+
    ```bash
    brew install gogcli
    ```
 
 2. or build from source:
+
    ```bash
    git clone https://github.com/steipete/gogcli.git
    cd gogcli
@@ -49,11 +52,13 @@ if gogcli is missing:
 ### gmail
 
 **search emails:**
+
 ```bash
 gog gmail search 'newer_than:7d' --json --max 10
 ```
 
 **send email:**
+
 ```bash
 gog gmail send \
   --to recipient@example.com \
@@ -62,6 +67,7 @@ gog gmail send \
 ```
 
 **get thread:**
+
 ```bash
 gog gmail thread get <threadId> --json
 ```
@@ -69,11 +75,13 @@ gog gmail thread get <threadId> --json
 ### calendar
 
 **today's events:**
+
 ```bash
 gog calendar events primary --today --json
 ```
 
 **create event:**
+
 ```bash
 gog calendar create primary \
   --summary "Meeting" \
@@ -83,6 +91,7 @@ gog calendar create primary \
 ```
 
 **search events:**
+
 ```bash
 gog calendar search "standup" --today --json
 ```
@@ -90,21 +99,25 @@ gog calendar search "standup" --today --json
 ### drive
 
 **list files:**
+
 ```bash
 gog drive ls --max 20 --json
 ```
 
 **search files:**
+
 ```bash
 gog drive search "invoice" --json
 ```
 
 **upload file:**
+
 ```bash
 gog drive upload /path/to/file --json
 ```
 
 **download file:**
+
 ```bash
 gog drive download <fileId> --out /path/to/save
 ```
@@ -112,11 +125,13 @@ gog drive download <fileId> --out /path/to/save
 ### docs
 
 **create doc:**
+
 ```bash
 gog docs create "My Document" --json
 ```
 
 **export as markdown:**
+
 ```bash
 gog docs export <docId> --format markdown
 ```
@@ -124,11 +139,13 @@ gog docs export <docId> --format markdown
 ### sheets
 
 **read sheet:**
+
 ```bash
 gog sheets read <spreadsheetId> --range "Sheet1!A1:D10" --json
 ```
 
 **write to sheet:**
+
 ```bash
 gog sheets write <spreadsheetId> --range "Sheet1!A1" --values "[[\"Name\",\"Email\"]]" --json
 ```
@@ -136,6 +153,7 @@ gog sheets write <spreadsheetId> --range "Sheet1!A1" --values "[[\"Name\",\"Emai
 ### contacts
 
 **search contacts:**
+
 ```bash
 gog contacts search "john" --json
 ```
@@ -143,11 +161,13 @@ gog contacts search "john" --json
 ### tasks
 
 **list tasks:**
+
 ```bash
 gog tasks list <tasklistId> --json
 ```
 
 **create task:**
+
 ```bash
 gog tasks add <tasklistId> "Task title" --json
 ```
@@ -166,11 +186,13 @@ always use `--json` flag for machine-readable output. parse the JSON response an
 ## account selection
 
 if user has multiple Google accounts configured:
+
 ```bash
 gog --account work@company.com gmail search 'newer_than:1d'
 ```
 
 or set default:
+
 ```bash
 export GOG_ACCOUNT=work@company.com
 ```

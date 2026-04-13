@@ -10,6 +10,7 @@ scrape and extract content from websites using playwright or lightweight fetchin
 ## when to use this skill
 
 use when the user asks to:
+
 - scrape a website or webpage
 - extract text/data from a URL
 - take a screenshot of a page
@@ -17,23 +18,38 @@ use when the user asks to:
 - interact with a page (click, type, scroll)
 
 do NOT use for:
+
 - simple web searches (use web_fetch instead)
 - APIs with proper endpoints (use curl/fetch instead)
 
 ## primary tools
 
 ### browser tool (playwright)
+
 use for JS-rendered pages, screenshots, interactions:
-```
+
+```text
 browser(action="open", targetUrl="https://example.com")
 browser(action="snapshot")
 browser(action="screenshot", targetId="...")
 browser(action="act", request={kind: "click", ref: "..."})
 ```
 
+**⚠️ browser binary location:** chromium is installed at `/ms-playwright/chromium-1217/chrome-linux64/chrome`
+
+**⚠️ common issues:**
+- openclaw's built-in browser tool may fail with "no browser found" — in that case, install playwright locally in workspace and run via node:
+  ```bash
+  npm install playwright --prefix /workspace
+  cd /workspace && node -e "const {chromium} = require('playwright'); ..."
+  ```
+- firebase/Google auth blocks headless browsers (400 error) — they detect HeadlessChrome in user agent
+
 ### web_fetch tool
+
 use for lightweight HTML fetching (no JS):
-```
+
+```text
 web_fetch(url="https://example.com", maxChars=10000)
 ```
 
@@ -42,6 +58,7 @@ web_fetch(url="https://example.com", maxChars=10000)
 the old scraper at `/root/.openclaw/skills/web-scraper/scripts/scrape.py` is **deprecated** — prefer browser/web_fetch tools above.
 
 if you must use it:
+
 ```bash
 python3 /root/.openclaw/skills/web-scraper/scripts/scrape.py "https://example.com"
 ```

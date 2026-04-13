@@ -7,6 +7,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import statistics
 import subprocess
@@ -59,6 +60,19 @@ def get_duration_seconds(audio_path: Path) -> float:
 
 
 def transcribe(audio_path: Path, model_name: str) -> tuple[list[dict[str, float | str]], dict[str, float]]:
+    # Optimize download speed using HF_TOKEN and high-speed transfer if available
+    hf_token = os.environ.get("HF_TOKEN")
+    if hf_token:
+        # These environment variables guide hf_hub_download used by faster-whisper
+        os.environ["HF_TOKEN"] = hf_token
+        # Enable hf_transfer for much faster downloads (requires hf_transfer package)
+        os.environ["HF_HUB_ENABLE_HF_TRANSFER"] = "1"
+        try:
+            from huggingface_hub import login
+            login(token=hf_token)
+        except ImportError:
+            pass
+
     model = WhisperModel(model_name, device="cpu", compute_type="int8")
     segments, info = model.transcribe(str(audio_path), vad_filter=True, word_timestamps=True)
     items: list[dict[str, float | str]] = []
@@ -199,7 +213,7 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Heuristic IELTS speaking grader")
     parser.add_argument("audio_path", help="Path to the audio file")
     parser.add_argument("--output-dir", help="Directory for transcript outputs")
-    parser.add_argument("--model", default="base", help="Whisper model name, for example tiny, base, small")
+    parser.add_argument("--model", default="turbo", help="Whisper model name, for example tiny, base, small, turbo, large-v3")
     return parser.parse_args()
 
 

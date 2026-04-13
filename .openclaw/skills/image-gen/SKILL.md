@@ -47,7 +47,7 @@ message(action="send", media=image_path, caption="cyberpunk classroom")
 
 ## Technical Details
 
-- API: Pollinations.AI (https://image.pollinations.ai)
+- API: Pollinations.AI (`https://image.pollinations.ai`)
 - Model: FLUX
 - Parameters: `nologo=true`, `enhance=true`
 - User-Agent spoofing required (handled by script)

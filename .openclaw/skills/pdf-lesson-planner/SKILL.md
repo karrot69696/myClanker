@@ -39,6 +39,7 @@ python3 scripts/ocr_pdf.py "path/to/file.pdf" /tmp/output.txt
 ```
 
 The script handles:
+
 - Converting PDF pages to images
 - Running Tesseract OCR on each page
 - Combining results into a single text file
@@ -46,6 +47,7 @@ The script handles:
 ### Step 3: Analyze Content Structure
 
 Read the extracted text and identify:
+
 - **Unit/chapter title** and learning outcomes
 - **Reading passages** and vocabulary
 - **Grammar points** being taught
@@ -65,6 +67,7 @@ Create a structured lesson plan with:
 7. **Wrap-up & Homework** (5-10 mins) - Review and assignment
 
 Include:
+
 - **Common mistakes** students make with this grammar/topic
 - **Differentiation tips** for different levels
 - **Materials needed**
@@ -79,6 +82,7 @@ Save the lesson plan as a markdown file in the same directory as the PDF.
 **ocr_pdf.py** - Converts image-based PDFs to text using Tesseract OCR
 
 Usage:
+
 ```bash
 python3 scripts/ocr_pdf.py input.pdf output.txt
 ```

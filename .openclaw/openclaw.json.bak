@@ -1,7 +1,7 @@
 {
   "meta": {
-    "lastTouchedVersion": "2026.4.5",
-    "lastTouchedAt": "2026-04-06T15:34:33.496Z"
+    "lastTouchedVersion": "2026.4.11",
+    "lastTouchedAt": "2026-04-13T05:07:29.775Z"
   },
   "session": {
     "reset": {
@@ -15,7 +15,10 @@
         "primary": "9router/dumb-todd",
         "fallbacks": []
       },
-      "timeoutSeconds": 200
+      "timeoutSeconds": 200,
+      "compaction": {
+        "mode": "safeguard"
+      }
     },
     "list": [
       {
@@ -113,6 +116,64 @@
         "http://127.0.0.1:18791",
         "http://0.0.0.0:18791"
       ]
+    }
+  },
+  "plugins": {
+    "entries": {
+      "memory-core": {
+        "config": {
+          "dreaming": {
+            "enabled": true
+          }
+        }
+      },
+      "memory-wiki": {
+        "enabled": true
+      }
+    },
+    "installs": {}
+  },
+  "skills": {
+    "entries": {
+      "apple-notes": {
+        "enabled": false
+      },
+      "apple-reminders": {
+        "enabled": false
+      },
+      "bear-notes": {
+        "enabled": false
+      },
+      "blogwatcher": {
+        "enabled": false
+      },
+      "blucli": {
+        "enabled": false
+      },
+      "bluebubbles": {
+        "enabled": false
+      },
+      "camsnap": {
+        "enabled": false
+      },
+      "discord": {
+        "enabled": false
+      },
+      "wacli": {
+        "enabled": false
+      },
+      "voice-call": {
+        "enabled": true
+      },
+      "xurl": {
+        "enabled": false
+      },
+      "trello": {
+        "enabled": false
+      },
+      "tmux": {
+        "enabled": false
+      }
     }
   }
 }

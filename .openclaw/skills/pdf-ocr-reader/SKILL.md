@@ -10,18 +10,21 @@ Extract text from PDFs using a fallback chain that works for both normal and sca
 ## when to use this skill
 
 use when the user asks to:
+
 - read a PDF
 - extract text from a PDF
 - OCR a scanned PDF
 - summarize or grade content that starts as a PDF
 
 do NOT use for:
+
 - image files that are not PDFs
 - handwritten photos without a PDF container
 
 ## prerequisites
 
 the container should have:
+
 - `pdftotext`
 - `ocrmypdf`
 - `python3`
@@ -30,31 +33,36 @@ the container should have:
 ## workflow
 
 1. run the extractor:
+
 ```bash
 python3 scripts/extract_pdf.py "/path/to/file.pdf"
 ```
 
-2. inspect the JSON output:
+1. inspect the JSON output:
+
 - `mode` tells you whether direct extraction or OCR was used
 - `text_path` points to the extracted text file
 - `markdown_path` points to a markdown-friendly version
 - `preview` gives a short sample for quick inspection
 
-3. read the extracted text file and continue with the downstream task
+1. read the extracted text file and continue with the downstream task
 
 ## command patterns
 
 basic extraction:
+
 ```bash
 python3 scripts/extract_pdf.py "/path/to/file.pdf"
 ```
 
 custom output folder:
+
 ```bash
 python3 scripts/extract_pdf.py "/path/to/file.pdf" --output-dir /tmp/pdf_job
 ```
 
 force OCR:
+
 ```bash
 python3 scripts/extract_pdf.py "/path/to/file.pdf" --force-ocr
 ```
